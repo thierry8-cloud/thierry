@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,9 @@
         .service-card { transition: all 0.4s ease; border-radius: 20px; overflow: hidden; }
         .service-card:hover { transform: scale(1.03); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
         section { padding: 80px 20px; border-bottom: 1px solid #eee; }
+        
+        /* Ensures the scrolling doesn't snap instantly */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -26,9 +29,14 @@
             <h1 class="handwriting mb-2 text-yellow-300">Hello, I am</h1>
             <h2 class="text-5xl md:text-7xl font-bold tracking-tight">MANIRIHO Thierry</h2>
             <p class="mt-4 text-xl opacity-90 max-w-2xl mx-auto">Providing expert Computer Maintenance, Electronics Repair, and Digital Growth in Kigali.</p>
+            
             <div class="mt-8 flex flex-wrap justify-center gap-4">
-                <a href="#contact" class="bg-white text-purple-700 px-8 py-3 rounded-full font-bold">Contact Me</a>
-                <a href="https://wa.me/250798584225" class="bg-green-500 text-white px-8 py-3 rounded-full font-bold"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#contact" class="bg-white text-purple-700 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-all transform hover:scale-105 active:scale-95 shadow-lg">
+                    Contact Me
+                </a>
+                <a href="https://wa.me/250798584225" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-full font-bold hover:bg-green-600 transition-all transform hover:scale-105 shadow-lg">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
             </div>
         </div>
     </header>
@@ -107,13 +115,25 @@
             <div class="grid md:grid-cols-2 gap-10 text-left mb-12">
                 <div class="space-y-4">
                     <p class="text-xl font-bold border-b border-gray-700 pb-2">Direct Contact</p>
-                    <p><i class="fas fa-phone mr-3 text-blue-400"></i> +250 790 058 422</p>
-                    <p><i class="fab fa-whatsapp mr-3 text-green-400"></i> +250 798 584 225</p>
-                    <p><i class="fas fa-envelope mr-3 text-red-400"></i> manirihothierry8@gmail.com</p>
+                    <p class="hover:text-blue-400 transition cursor-pointer">
+                        <i class="fas fa-phone mr-3 text-blue-400"></i> 
+                        <a href="tel:+250790058422">+250 790 058 422</a>
+                    </p>
+                    <p class="hover:text-green-400 transition cursor-pointer">
+                        <i class="fab fa-whatsapp mr-3 text-green-400"></i> 
+                        <a href="https://wa.me/250798584225" target="_blank">+250 798 584 225</a>
+                    </p>
+                    <p class="hover:text-red-400 transition cursor-pointer">
+                        <i class="fas fa-envelope mr-3 text-red-400"></i> 
+                        <a href="mailto:manirihothierry8@gmail.com">manirihothierry8@gmail.com</a>
+                    </p>
                 </div>
                 <div class="space-y-4">
                     <p class="text-xl font-bold border-b border-gray-700 pb-2">Location</p>
-                    <p><i class="fas fa-map-marker-alt mr-3 text-orange-400"></i> Nyamirambo, Mumena, Nyarugenge, Kigali</p>
+                    <p class="hover:text-orange-400 transition cursor-pointer">
+                        <i class="fas fa-map-marker-alt mr-3 text-orange-400"></i> 
+                        <a href="https://www.google.com/maps/search/Nyamirambo,+Kigali" target="_blank">Nyamirambo, Mumena, Nyarugenge, Kigali</a>
+                    </p>
                     <div class="flex gap-6 mt-6 text-3xl">
                         <a href="https://x.com/thierrystream" target="_blank" class="hover:text-blue-400 transition"><i class="fab fa-twitter"></i></a>
                         <a href="https://www.instagram.com/thierry.x_/" target="_blank" class="hover:text-pink-400 transition"><i class="fab fa-instagram"></i></a>
