@@ -175,72 +175,81 @@
             </div>
         </div>
     </section>
-
-<section id="submission-center" class="max-w-4xl mx-auto px-6">
-    <div class="glass-panel shadow-2xl border-t-4 border-purple-600">
+<section id="request-service" class="max-w-4xl mx-auto">
+    <div class="glass-panel shadow-2xl border border-white/50">
         <div class="text-center mb-8">
             <h3 class="handwriting text-purple-600">Service Submission Center</h3>
-            <p class="text-gray-600">Fill the details below to request a service or report a problem.</p>
+            <p class="text-gray-600">Fill in the details below to request a service</p>
         </div>
-
-        <form id="serviceForm" action="https://formspree.io/f/manirihothierry8@gmail.com" method="POST" class="space-y-4">
+        
+        <form id="serviceForm" class="space-y-4">
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
-                    <input type="text" name="name" required placeholder="Enter your name" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none">
+                    <input type="text" id="userName" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="Enter your name">
                 </div>
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
-                    <input type="tel" name="phone" required placeholder="+250..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none">
+                    <input type="tel" id="userPhone" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="+250...">
                 </div>
             </div>
 
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Address / Location</label>
-                <input type="text" name="address" required placeholder="e.g., Nyamirambo, Kigali" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Your Address</label>
+                <input type="text" id="userAddress" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="Kigali, Nyamirambo...">
             </div>
 
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Select Service Needed</label>
-                <select name="service_type" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none bg-white">
-                    <option value="" disabled selected>Choose a category...</option>
+                <select id="userServiceClient" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none bg-white">
+                    <option value="">-- Choose a service --</option>
                     <optgroup label="Computer & Software">
-                        <option>Maintenance & Virus Removal</option>
                         <option>Windows & Linux Setup</option>
-                        <option>Software Installation</option>
+                        <option>Software Installation & Repair</option>
+                        <option>MS Office & Virtual DJ Specialist</option>
                     </optgroup>
                     <optgroup label="Technical & Electrical">
                         <option>House Electrical Installation</option>
-                        <option>Hardware Troubleshooting</option>
-                        <option>Electronic Repair</option>
+                        <option>Hardware Maintenance & Troubleshooting</option>
+                        <option>Electronic Component Repair</option>
                     </optgroup>
                     <optgroup label="Internet & Network">
-                        <option>Router Configuration</option>
-                        <option>Wi-Fi Optimization</option>
+                        <option>Router & Network Configuration</option>
+                        <option>Wi-Fi Troubleshooting</option>
+                        <option>Professional High-speed Setup</option>
                     </optgroup>
-                    <optgroup label="Web & Development">
-                        <option>Website Creation</option>
-                        <option>Logo & Brand Identity</option>
+                    <optgroup label="Web & Software Development">
+                        <option>Professional Website Creation</option>
+                        <option>Old Photo Renewal & Editing</option>
+                        <option>Logo & Brand Identity Creation</option>
                     </optgroup>
                 </select>
             </div>
 
             <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Describe your Problem/Service</label>
-                <textarea name="problem" rows="4" required placeholder="Tell me more about what you need..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"></textarea>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Describe your problem</label>
+                <textarea id="userProblem" rows="3" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="Tell me more about what you need..."></textarea>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                <button type="submit" class="bg-purple-600 text-white py-4 rounded-xl font-bold hover:bg-purple-700 transition flex items-center justify-center gap-2">
-                    <i class="fas fa-envelope"></i> Submit via Email
-                </button>
-                <button type="button" onclick="sendWhatsApp()" class="bg-green-500 text-white py-4 rounded-xl font-bold hover:bg-green-600 transition flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp"></i> Submit via WhatsApp
-                </button>
+            <div class="pt-4 space-y-3">
+                <p class="text-center font-bold text-gray-700">Submit via:</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <button type="button" onclick="submitForm('whatsapp')" class="flex items-center justify-center gap-2 bg-green-500 text-white p-3 rounded-xl font-bold hover:bg-green-600 transition shadow-lg">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button type="button" onclick="submitForm('email')" class="flex items-center justify-center gap-2 bg-blue-600 text-white p-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
+                        <i class="fas fa-envelope"></i> Email (Gmail)
+                    </button>
+                    <button type="button" onclick="submitForm('instagram')" class="flex items-center justify-center gap-2 bg-pink-600 text-white p-3 rounded-xl font-bold hover:bg-pink-700 transition shadow-lg">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </button>
+                </div>
             </div>
         </form>
     </div>
 </section>
+
+
     <footer id="contact" class="footer-bg text-white py-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="handwriting text-yellow-400 mb-8 text-5xl">Get In Touch</h2>
@@ -320,3 +329,4 @@
 
 </body>
 </html>
+
