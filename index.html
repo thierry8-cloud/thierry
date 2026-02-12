@@ -175,80 +175,115 @@
             </div>
         </div>
     </section>
-<section id="request-service" class="max-w-4xl mx-auto">
-    <div class="glass-panel shadow-2xl border border-white/50">
-        <div class="text-center mb-8">
-            <h3 class="handwriting text-purple-600">Service Submission Center</h3>
-            <p class="text-gray-600">Fill in the details below to request a service</p>
+<section id="contact" class="max-w-4xl mx-auto">
+        <div class="glass-panel shadow-2xl border border-white/50">
+            <div class="text-center mb-8">
+                <h2 class="handwriting text-purple-700">Submission Center</h2>
+                <p class="text-gray-600">Fill in the details below to request a service.</p>
+            </div>
+            
+            <form id="serviceForm" class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="userName" required class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-purple-500 outline-none" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="userPhone" required class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-purple-500 outline-none" placeholder="+250...">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Address</label>
+                        <input type="text" id="userAddress" required class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-purple-500 outline-none" placeholder="Kigali, Nyamirambo...">
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Select Service</label>
+                        <select id="userCategory" class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-purple-500 outline-none">
+                            <optgroup label="Computer & Software">
+                                <option>Windows & Linux Setup</option>
+                                <option>Software Installation & Repair</option>
+                                <option>Virus Removal & Optimization</option>
+                            </optgroup>
+                            <optgroup label="Technical & Electrical">
+                                <option>House Electrical Installation</option>
+                                <option>Electronic Component Repair</option>
+                                <option>Hardware Troubleshooting</option>
+                            </optgroup>
+                            <optgroup label="Internet & Network">
+                                <option>Router & Wi-Fi Configuration</option>
+                                <option>High-speed Network Setup</option>
+                            </optgroup>
+                            <optgroup label="Web & Design">
+                                <option>Web Development</option>
+                                <option>Logo & Brand Identity</option>
+                                <option>Old Photo Renewal</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Describe Your Problem</label>
+                        <textarea id="userProblem" rows="3" class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-purple-500 outline-none" placeholder="How can I help you?"></textarea>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 bg-purple-50 p-4 rounded-xl border border-purple-100">
+                    <label class="block text-center font-bold text-purple-800 mb-3">Choose Submission Method:</label>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button type="button" onclick="submitRequest('email')" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full flex items-center gap-2 transition transform hover:scale-105">
+                            <i class="fas fa-envelope"></i> Send via Gmail
+                        </button>
+                        <button type="button" onclick="submitRequest('whatsapp')" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full flex items-center gap-2 transition transform hover:scale-105">
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                        </button>
+                        <a href="https://www.instagram.com/thierry.x_/" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-full flex items-center gap-2 transition transform hover:scale-105">
+                            <i class="fab fa-instagram"></i> DM on Instagram
+                        </a>
+                    </div>
+                </div>
+            </form>
         </div>
-        
-        <form id="serviceForm" class="space-y-4">
-            <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
-                    <input type="text" id="userName" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="Enter your name">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
-                    <input type="tel" id="userPhone" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="+250...">
-                </div>
-            </div>
+    </section>
 
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Your Address</label>
-                <input type="text" id="userAddress" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="Kigali, Nyamirambo...">
-            </div>
+    <footer class="footer-bg text-white py-12 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-gray-400">© 2026 MANIRIHO Thierry — Direct Support: +250 798 584 225</p>
+        </div>
+    </footer>
 
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Select Service Needed</label>
-                <select id="userServiceClient" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none bg-white">
-                    <option value="">-- Choose a service --</option>
-                    <optgroup label="Computer & Software">
-                        <option>Windows & Linux Setup</option>
-                        <option>Software Installation & Repair</option>
-                        <option>MS Office & Virtual DJ Specialist</option>
-                    </optgroup>
-                    <optgroup label="Technical & Electrical">
-                        <option>House Electrical Installation</option>
-                        <option>Hardware Maintenance & Troubleshooting</option>
-                        <option>Electronic Component Repair</option>
-                    </optgroup>
-                    <optgroup label="Internet & Network">
-                        <option>Router & Network Configuration</option>
-                        <option>Wi-Fi Troubleshooting</option>
-                        <option>Professional High-speed Setup</option>
-                    </optgroup>
-                    <optgroup label="Web & Software Development">
-                        <option>Professional Website Creation</option>
-                        <option>Old Photo Renewal & Editing</option>
-                        <option>Logo & Brand Identity Creation</option>
-                    </optgroup>
-                </select>
-            </div>
+    <script>
+        function submitRequest(method) {
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const address = document.getElementById('userAddress').value;
+            const service = document.getElementById('userCategory').value;
+            const problem = document.getElementById('userProblem').value;
 
-            <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Describe your problem</label>
-                <textarea id="userProblem" rows="3" required class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-500 outline-none" placeholder="Tell me more about what you need..."></textarea>
-            </div>
+            if(!name || !phone || !address) {
+                alert("Please fill in your Name, Phone, and Address first.");
+                return;
+            }
 
-            <div class="pt-4 space-y-3">
-                <p class="text-center font-bold text-gray-700">Submit via:</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <button type="button" onclick="submitForm('whatsapp')" class="flex items-center justify-center gap-2 bg-green-500 text-white p-3 rounded-xl font-bold hover:bg-green-600 transition shadow-lg">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </button>
-                    <button type="button" onclick="submitForm('email')" class="flex items-center justify-center gap-2 bg-blue-600 text-white p-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg">
-                        <i class="fas fa-envelope"></i> Email (Gmail)
-                    </button>
-                    <button type="button" onclick="submitForm('instagram')" class="flex items-center justify-center gap-2 bg-pink-600 text-white p-3 rounded-xl font-bold hover:bg-pink-700 transition shadow-lg">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
+            const message = `*NEW SERVICE REQUEST*%0A%0A` +
+                            `*Name:* ${name}%0A` + 
+                            `*Phone:* ${phone}%0A` +
+                            `*Address:* ${address}%0A` +
+                            `*Service:* ${service}%0A` +
+                            `*Problem:* ${problem}`;
 
+            if(method === 'whatsapp') {
+                window.open(`https://wa.me/250798584225?text=${message}`, '_blank');
+            } else if(method === 'email') {
+                const subject = `Service Request from ${name}`;
+                const emailBody = message.replace(/%0A/g, '\n').replace(/\*/g, '');
+                window.location.href = `mailto:manirihothierry8@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            }
+        }
+    </script>
+</body>
+</html>
 
     <footer id="contact" class="footer-bg text-white py-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
